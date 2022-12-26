@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row">
+      <button class="btn btn-info mt-2" (click)="getAllEntries()">Get All Entries</button>
+  
+      <div class="d-flex justify-content-center mt-4 mb-2" *ngIf="displayloader">
+        <div class="spinner-border text-info" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    <table class="table table-bordered table-striped table-sm mt-5" *ngIf="!displayloader">
+      <thead>
+        <tr class="bg-info">
+        <th *ngFor="let column of columnHeader">{{column}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let entry of allEntries">
+          <td>{{entry.API}}</td>
+          <td>{{entry.Auth}}</td>
+          <td>{{entry.Category}}</td>
+          <td>{{entry.Cors}}</td>
+          <td>{{entry.Description}}</td>
+          <td>{{entry.HTTPS}}</td>
+          <td>{{entry.Link}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr>
+    <table class="table table-bordered table-striped mt-5">
+      <thead>
+        <tr class="bg-info">
+        <th>Name</th>
+        <th>UserName</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>City</th>
+        <th>Company Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{user.name}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.phone}}</td>
+          <td>{{user.address.city}}</td>
+          <td>{{user.company.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>

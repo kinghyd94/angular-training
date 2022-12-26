@@ -1,0 +1,46 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-6">
+            <table class=" table table-bordered table-striped">
+                <thead>
+                    <tr class="bg-info">
+                        <th *ngFor="let col of columnHeader">{{col | uppercase}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let employee of allEmployees">
+                        <td>{{employee.id}}</td>
+                        <td>{{employee.name}}</td>
+                        <td>{{employee.salary}}</td>
+                        <td>{{employee.gender}}</td>
+                        <td>
+                            <button class="btn btn-danger" (click)="delEmployee(employee.id)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-6">
+            <form>
+                <!-- Name input -->
+                <div class="form-outline mb-1">
+                    <input type="text" id="name" name="name" class="form-control" [(ngModel)]="name"/>
+                    <label class="form-label" for="name">Name</label>
+                </div>
+
+                <!-- Salary input -->
+                <div class="form-outline mb-1">
+                    <input type="text" id="salary" name="salary" class="form-control" [(ngModel)]="salary"/>
+                    <label class="form-label" for="salary">Salary</label>
+                </div>
+                <!-- Gender input -->
+                <div class="form-outline mb-1">
+                    <input type="text" id="gender" name="gender" class="form-control" [(ngModel)]="gender"/>
+                    <label class="form-label" for="gender">Gender</label>
+                </div>
+                <!--  button -->
+                <button type="button" class="btn btn-primary btn-block" (click)="addEmployee(name,salary,gender)">Add Employee</button>
+            </form>
+        </div>
+    </div>
+</div>
